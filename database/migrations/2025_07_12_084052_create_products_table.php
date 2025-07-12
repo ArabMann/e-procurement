@@ -15,9 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string("name");
             $table->longText("description");
-            $table->string("image");
             $table->string("slug");
             $table->foreignId("category_id")->constrained()->onDelete("cascade");
+            $table->foreignId("vendor_id")->constrained()->onDelete("cascade");
+            $table->softDeletes();
             $table->timestamps();
         });
     }
